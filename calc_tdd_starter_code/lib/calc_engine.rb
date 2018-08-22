@@ -13,16 +13,13 @@ class CalcEngine
   # end
   def run_calculator
     puts "Do you want to use (b)asic, (a)dvanced, (i)bmi or (t)trip?"
-    def number
-      choice = gets.chomp
+    choice = gets.chomp
+    case choice
       puts "choose a num1"
       num1 = gets.chomp
       puts "choose a num2"
       num2 = gets.chomp
-    end
-    case choice
     when "b"
-      number
       operation = gets.chomp
       puts "choose a operation : add, minus, multiply or divide"
       # BASIC
@@ -30,19 +27,26 @@ class CalcEngine
           def add_two_numbers(num1, num2)
             num1 + num2
           end
+          puts add_two_numbers(num1, num2)
         when "minus"
           def minus_two_numbers num1, num2
             num1 - num2
           end
+          puts minus_two_numbers num1, num2
         when "multiply"
           def multiply num1, num2
             num1 * num2
           end
+          puts multiply num1, num2
         when "divide"
           def divide num1, num2
             num1 / num2
           end
+          puts divide num1, num2
         # END BASIC
+
+
+
     when "a"
       number
       advance = gets.chomp
@@ -57,6 +61,11 @@ class CalcEngine
           Math.sqrt(num1)
         end
       #END ADVANCE
+
+
+
+
+
     when "i"
       #BMI
       puts "Define your height (in m) and your weight(in kg)"
@@ -66,6 +75,10 @@ class CalcEngine
           ((weight / height) / height).to_i
         end
     # END BMI
+
+
+
+
     when "t"
       puts "define the distance in km"
       distance = gets.chomp
