@@ -56,10 +56,12 @@ class CalcEngine
         def power num1, num2
           num1 ** num2
         end
+        puts power num1, num2
       when square
         def square num1
           Math.sqrt(num1)
         end
+        put square num1
       #END ADVANCE
 
 
@@ -74,6 +76,7 @@ class CalcEngine
         def BMIfunction height, weight
           ((weight / height) / height).to_i
         end
+        put BMIfunction height, weight
     # END BMI
 
 
@@ -90,10 +93,12 @@ class CalcEngine
           def time distance, speed
             (distance / speed).to_f
           end
+          put time distance, speed
         when speed
           def costTotal distance, cost
             (distance * cost).to_f.round(2)
           end
+          put costTotal distance, cost
       #END TRIP
     else
       "select something"
