@@ -13,13 +13,16 @@ class CalcEngine
   # end
   def run_calculator
     puts "Do you want to use (b)asic, (a)dvanced, (i)bmi or (t)trip?"
-    choice = gets.chomp
-    puts "choose a num1"
-    num1 = gets.chomp
-    puts "choose a num2"
-    num2 = gets.chomp
+    def number
+      choice = gets.chomp
+      puts "choose a num1"
+      num1 = gets.chomp
+      puts "choose a num2"
+      num2 = gets.chomp
+    end
     case choice
     when "b"
+      number
       operation = gets.chomp
       puts "choose a operation : add, minus, multiply or divide"
       # BASIC
@@ -41,37 +44,49 @@ class CalcEngine
           end
         # END BASIC
     when "a"
+      number
+      advance = gets.chomp
+      puts "choose an operation: power or square"
     # ADVANCE
-      def power num1, num2
-        num1 ** num2
-      end
-      def square num1
-        Math.sqrt(num1)
-      end
+      when power
+        def power num1, num2
+          num1 ** num2
+        end
+      when square
+        def square num1
+          Math.sqrt(num1)
+        end
       #END ADVANCE
     when "i"
       #BMI
-      def BMIfunction height, weight
-        ((weight / height) / height).to_i
-      end
-      #
-      # def BMIfunctionImperial height, weight
-      #   (weight / (height * height)) * 703
-      # end
+      puts "Define your height (in m) and your weight(in kg)"
+      height = gets.chomp
+      weight = gets.chomp
+        def BMIfunction height, weight
+          ((weight / height) / height).to_i
+        end
     # END BMI
     when "t"
+      puts "define the distance in km"
+      distance = gets.chomp
+      puts "define the speed in km"
+      speed = gets.chomp
+      puts "do you want to calculate your time or your speed?"
       # TRIP
-        def time distance, speed
-          (distance / speed).to_f
-        end
-
-        def costTotal distance, cost
-          (distance * cost).to_f.round(2)
-        end
+        when time
+          def time distance, speed
+            (distance / speed).to_f
+          end
+        when speed
+          def costTotal distance, cost
+            (distance * cost).to_f.round(2)
+          end
       #END TRIP
-    end
-  end
-end
+    else
+      "select something"
+    end #end of case choice
+  end #end of run run_calculator
+end #end of calc
 
 calc = CalcEngine.new()
 calc.run_calculator
